@@ -1,27 +1,38 @@
 <template>
-  <button class="btn"></button>
+  <button class="btn"
+  @click="loginbtn"
+  :class="{danger:type==='danger',primary:type==='primary',info:type==='info',warning:type==='warning'}"
+  >{{text}}</button>
 </template>
 
 <script>
 export default {
-
+  props: ['text', 'type'],
+  methods: {
+    loginbtn (event) {
+      console.log(event)
+      this.$emit('btnclick', event)
+    }
+  }
 }
 </script>
 
 <style>
 .btn {
-  width: 90%;
-  height: 40px;
+  width: 100%;
+  height: 45px;
   border: none;
   border: 1px solid #ccc;
   background: red;
   border-radius: 20px;
   /* outline: none; */
-  font-size: 18px;
-  color: #ccc;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
   text-align: center;
-  line-height: 40px;
-  box-shadow: 5px 5px 5px #ccc;
+  line-height: 45px;
+  box-shadow: 5px 5px 5px #fff;
+  outline: none
 }
 .danger {
   background-color: #f00;

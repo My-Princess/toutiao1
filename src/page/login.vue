@@ -15,7 +15,7 @@
         没有账号？
         <a href="#/register" class>去注册</a>
       </p>
-      <mybutton class="button">登录按钮</mybutton>
+      <mybutton class="button" text="登录" @btnclick="login" type="danger">登录按钮</mybutton>
     </div>
   </div>
 </template>
@@ -25,6 +25,11 @@ import mybutton from '@/components/mybutton'
 export default {
   components: {
     mybutton
+  },
+  methods: {
+    login () {
+      console.log('111')
+    }
   }
 }
 </script>
