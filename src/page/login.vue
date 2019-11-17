@@ -2,10 +2,10 @@
   <div id="app">
     <div class="container">
       <div class="close">
-        <span class="iconfont iconicon-test"></span>
+        <span class="iconfont icon-guanbi2"></span>
       </div>
       <div class="logo">
-        <span class="iconfont iconnew"></span>
+        <span class="iconfont icon-maomao"></span>
       </div>
       <div class="inputs">
         <input placeholder="请输入手机号" class="input" />
@@ -31,7 +31,7 @@ export default {}
 
 .close {
   span {
-    font-size: 27 / 360 * 100vw;
+    font-size: 3.6vw;
   }
 }
 
