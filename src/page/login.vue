@@ -8,7 +8,10 @@
         <span class="iconfont icon-maomao"></span>
       </div>
       <div class="inputs">
-        <myinput placeholder="请输入手机号" class="input" />
+        <myinput placeholder="请输入您的手机号"
+         class="input"
+
+          />
         <myinput placeholder="密码" class="input"/>
       </div>
       <p class="tips">
@@ -22,9 +25,10 @@
 
 <script>
 import mybutton from '@/components/mybutton'
+import myinput from '@/components/myinput'
 export default {
   components: {
-    mybutton
+    mybutton, myinput
   },
   methods: {
     login () {

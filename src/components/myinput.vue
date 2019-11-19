@@ -1,10 +1,13 @@
 <template>
-<input type="text" class="input">
+<input type="text"
+class="input"
+:placeholder="placeholder"
+>
 </template>
 
 <script>
 export default {
-
+  props: ['placeholder']
 }
 </script>
 
