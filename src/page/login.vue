@@ -10,9 +10,13 @@
       <div class="inputs">
         <myinput placeholder="请输入您的手机号"
          class="input"
-
+         v-model="users.username"
           />
-        <myinput placeholder="密码" class="input"/>
+        <myinput type="password"
+        placeholder="密码"
+        class="input"
+        v-model="users.password"
+        />
       </div>
       <p class="tips">
         没有账号？
@@ -27,12 +31,20 @@
 import mybutton from '@/components/mybutton'
 import myinput from '@/components/myinput'
 export default {
+  data () {
+    return {
+      users: {
+        username: 'tt',
+        password: '123'
+      }
+    }
+  },
   components: {
     mybutton, myinput
   },
   methods: {
     login () {
-      console.log('111')
+      console.log(this.users)
     }
   }
 }

@@ -2,12 +2,21 @@
 <input type="text"
 class="input"
 :placeholder="placeholder"
+@input="datainp"
 >
 </template>
 
 <script>
 export default {
-  props: ['placeholder']
+  props: ['placeholder'],
+  methods: {
+    datainp (event) {
+      // 获取输入框的数据
+      //   let data = event.target.value
+      // 发送输入框数据
+      this.$emit('input', event.target.value)
+    }
+  }
 }
 </script>
 
