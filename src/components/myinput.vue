@@ -29,10 +29,11 @@ export default {
           this.statu = 'erro'
         }
       }
-      console.log(this.rules)
+      //   console.log(this.rules)
       // 发送输入框数据
       this.$emit('input', event.target.value)
     },
+    // 失去焦点
     blurdata (event) {
       let data = event.target.value
       if (this.rules && typeof this.rules === 'object') {

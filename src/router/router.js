@@ -2,7 +2,8 @@
 import Vue from 'vue'
 // 引入vue-router
 import VueRouter from 'vue-router'
-import Login from '../page/login.vue'
+import Login from '@/page/login.vue'
+import Register from '@/page/register.vue'
 Vue.use(VueRouter)
 
 // 创建路由对象
@@ -12,6 +13,11 @@ var router = new VueRouter({
       name: 'Login',
       path: '/login',
       component: Login
+    },
+    {
+      name: 'Register',
+      path: '/register',
+      component: Register
     }
   ]
 })
