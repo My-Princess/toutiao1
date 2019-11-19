@@ -11,6 +11,8 @@
         <myinput placeholder="请输入您的手机号"
          class="input"
          v-model="users.username"
+         :rules='/^1\d{10}$/'
+         err_msg="手机格式输入错误"
           />
         <myinput type="password"
         placeholder="密码"
