@@ -3,8 +3,9 @@ import App from './App.vue'
 
 import router from './router/router'
 // vant按需引入
-import { Toast } from 'vant'
-Vue.use(Toast)
+import { Toast, Field } from 'vant'
+Vue.use(Toast, Field)
+
 Vue.config.productionTip = false
 
 new Vue({

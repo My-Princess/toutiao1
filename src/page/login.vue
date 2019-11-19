@@ -8,8 +8,8 @@
         <span class="iconfont icon-maomao"></span>
       </div>
       <div class="inputs">
-        <input placeholder="请输入手机号" class="input" />
-        <input placeholder="密码" class="input" type="password" />
+        <myinput placeholder="请输入手机号" class="input" />
+        <myinput placeholder="密码" class="input"/>
       </div>
       <p class="tips">
         没有账号？
