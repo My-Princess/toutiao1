@@ -9,6 +9,7 @@
       </div>
       <div class="inputs">
         <myinput placeholder="请输入您的手机号"
+         type="text"
          class="input"
          v-model="users.username"
          :rules='/^1\d{10}$/'
@@ -28,10 +29,10 @@
         />
       </div>
       <p class="tips">
-        没有账号？
-        <a href="#/register" class>去注册</a>
+        有账号？
+        <a href="#/login" class>去登录</a>
       </p>
-      <mybutton class="button" text="登录" @btnclick="login" type="danger">登录按钮</mybutton>
+      <mybutton class="button" text="注册" @btnclick="register" type="danger">注册按钮</mybutton>
     </div>
   </div>
 </template>
@@ -39,6 +40,7 @@
 <script>
 import mybutton from '@/components/mybutton'
 import myinput from '@/components/myinput'
+import { register } from '../ulits/users'
 export default {
   data () {
     return {
@@ -53,8 +55,16 @@ export default {
     mybutton, myinput
   },
   methods: {
-    login () {
-      console.log(this.users)
+    async register (data) {
+    //   console.log(this.users)
+      var res = await register(this.users)
+      console.log(res)
+      if (res.data.message === '注册成功') {
+        this.$toast.fail('注册成功，跳转到登录')
+        this.$router.push({ name: 'Login' })
+      } else {
+        this.$toast.fail('注册失败')
+      }
     }
   }
 }

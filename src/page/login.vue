@@ -32,6 +32,7 @@
 <script>
 import mybutton from '@/components/mybutton'
 import myinput from '@/components/myinput'
+import { login } from '../ulits/users'
 export default {
   data () {
     return {
@@ -46,7 +47,22 @@ export default {
   },
   methods: {
     login () {
-      console.log(this.users)
+      // console.log(this.users)
+      login(this.users)
+        .then(res => {
+          if (res.data.message === '登录成功') {
+            // 将token数据存储在本地
+            // localStorage.setItem('toutiao_Authorization', res.data.data.token)
+            this.$router.push({ path: `/personal/${res.data.data.user.id}` })
+          } else {
+            this.$toast.fail(res.data.message)
+          }
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+          this.$toast.fail('服务器异常')
+        })
     }
   }
 }
