@@ -53,7 +53,8 @@ export default {
           if (res.data.message === '登录成功') {
             // 将token数据存储在本地
             // localStorage.setItem('toutiao_Authorization', res.data.data.token)
-            this.$router.push({ path: `/personal/${res.data.data.user.id}` })
+            // this.$router.push({ path: `/personal/${res.data.data.user.id}` })
+            this.$router.push({ path: '/personal' })
           } else {
             this.$toast.fail(res.data.message)
           }
