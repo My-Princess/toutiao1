@@ -6,9 +6,9 @@
         <img :src="users.head_img" alt />
         <div class="profile-center">
           <div class="name">
-            <span class="iconfont iconxingbienan"></span>ll
+            <span class="iconfont iconxingbienan"></span>{{users.nickname}}
           </div>
-          <div class="time">2019-11.2</div>
+          <div class="time">{{users.time | timeformat}}</div>
         </div>
         <span class="iconfont iconjiantou1"></span>
       </div>
@@ -25,6 +25,8 @@
 
 <script>
 import mycell from '@/components/mycell'
+import { getuserInfoById } from '@/ulits/users'
+import { timeformat } from '../ulits/filters'
 export default {
   data () {
     return {
@@ -34,11 +36,28 @@ export default {
   components: {
     mycell
   },
-  mounted () {
+  async mounted () {
     let id = this.$route.params.id
     console.log(id)
-    // let res = await getuserInfoById(id)
-    // console.log(res)
+    let res = await getuserInfoById(id)
+    console.log(res)
+    if (res.data.message === '获取成功') {
+      // 直接拿起数据库中的data里全部值
+      this.users = res.data.data
+      //   console.log(this.users)
+      // 时间
+      this.users.time = new Date()
+      // 头像
+      if (this.users.head_img) {
+        this.users.head_img = localStorage.getItem('toutiao_Authorization') + this.users.head_img
+      } else {
+        this.users.head_img = './hots_4.jpg'
+      }
+    }
+  },
+  // 过滤器
+  filters: {
+    timeformat
   }
 }
 </script>
